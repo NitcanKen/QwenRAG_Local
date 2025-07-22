@@ -38,7 +38,7 @@ COLLECTION_NAME = "test-qwen-r1"
 
 
 # Streamlit App Initialization
-st.title("🐋 Qwen 3 Local RAG Reasoning Agent")
+st.title("Qwen 3 Local RAG Reasoning Agent")
 
 # --- Add Model Info Boxes --- 
 st.info("**Qwen3:** The latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models.")
@@ -82,11 +82,16 @@ Choose based on your hardware capabilities.
 """
 st.session_state.model_version = st.sidebar.radio(
     "Select Model Version",
-    options=["qwen3:1.7b", "gemma3:1b", "gemma3:4b", "deepseek-r1:1.5b", "qwen3:8b"],
+    options=["qwen3:1.7b", "gemma3:1b", "gemma3:4b", "deepseek-r1:1.5b", "qwen3:8b","deepseek-r1:8b"],
     help=model_help
 )
 
 st.sidebar.info("Run ollama pull qwen3:1.7b")
+st.sidebar.info("Run ollama pull gemma3:1b")
+st.sidebar.info("Run ollama pull gemma3:4b")
+st.sidebar.info("Run ollama pull deepseek-r1:1.5b")
+st.sidebar.info("Run ollama pull qwen3:8b")
+st.sidebar.info("Run ollama pull deepseek-r1:8b")
 
 # RAG Mode Toggle
 st.sidebar.header("📚 RAG Mode")

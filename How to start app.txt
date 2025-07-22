@@ -1,0 +1,87 @@
+ Here's how to start both the frontend and backend for testing:
+
+  🚀 Starting the Backend
+
+  1. Activate virtual environment and start backend:
+  cd "C:\Users\asdzx\Documents\Python Project\QwenRAG_Local"
+  QwanRAG\Scripts\activate
+  cd backend
+  python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+  The backend will be available at: http://localhost:8000
+
+  🖥️ Starting the Frontend
+
+  2. In a new terminal, start frontend:
+  cd "C:\Users\asdzx\Documents\Python Project\QwenRAG_Local\frontend"
+  npm run dev
+
+  The frontend will be available at: http://localhost:5173 or http://localhost:5174
+
+  📋 Testing Steps
+
+  3. Open in your browser:
+    - Frontend: http://localhost:5173
+    - Backend API docs: http://localhost:8000/docs (FastAPI Swagger UI)
+  4. What you'll see:
+    - Frontend: Dashboard with mock data (components work but may show loading states due to backend connection)
+    - Backend: API documentation and health endpoints
+
+  ⚠️ Expected Issues & Solutions
+
+  Backend Issues:
+
+  - Database connections: Backend may show errors connecting to Supabase (expected with test config)      
+  - Redis: Chat features may not work without Redis running
+  - Solution: Backend will still serve API structure even with connection errors
+
+  Frontend Issues:
+
+  - Import errors: You may see TypeScript import issues in console (non-blocking)
+  - API calls failing: Expected if backend database isn't fully configured
+  - Solution: Components will show loading states and error handling
+
+  🎯 Quick Test Commands
+
+  Test backend is running:
+  curl http://localhost:8000/health
+
+  Test frontend build:
+  cd frontend && npm run build
+
+  📁 Key Files to Check
+
+  Backend entry: backend/app/main.py
+  Frontend entry: frontend/src/App.tsx
+  Dashboard components: frontend/src/components/dashboard/
+
+---
+
+    Windows (.bat files)
+
+  - start_app.bat - Main script with full startup and shutdown logic
+  - stop_app.bat - Quick shortcut for shutdown
+
+  Linux/Mac (.sh file)
+
+  - start_app.sh - Cross-platform shell script version
+
+  Usage
+
+  Windows:
+
+  # Start all services
+  start_app.bat
+
+  # Stop all services
+  start_app.bat stop
+  # OR
+  stop_app.bat
+
+  Linux/Mac:
+
+  # Start all services
+  ./start_app.sh
+
+  # Stop all services
+  ./start_app.sh stop
